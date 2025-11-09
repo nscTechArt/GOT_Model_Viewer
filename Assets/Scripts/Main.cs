@@ -222,7 +222,7 @@ public class Main : MonoBehaviour
 
         foreach (var hideMeshItem in hideMeshList)
         {
-            hideMeshItem.meshObj.meshData.isHide = false;
+            hideMeshItem.meshObj.M_MeshData.isHide = false;
             hideMeshItem.DestroySelf();
         }
         

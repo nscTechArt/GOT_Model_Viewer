@@ -1,39 +1,31 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MeshObj : MonoBehaviour
 {
     [NonSerialized] 
-    public MeshReader.MeshData meshData;
+    public MeshReader.MeshData M_MeshData;
 
-    [NonSerialized] public MeshRenderer rdr;
-    [NonSerialized] public MeshCollider collider;
+    private MeshRenderer mRenderer;
+    private MeshCollider mCollider;
 
-    public void Initialize(MeshReader.MeshData meshData)
+    public void Initialize(MeshReader.MeshData inputMeshData)
     {
-        this.meshData = meshData;
-        rdr = GetComponent<MeshRenderer>();
-        collider = GetComponent<MeshCollider>();
+        M_MeshData = inputMeshData;
+        mRenderer = GetComponent<MeshRenderer>();
+        mCollider = GetComponent<MeshCollider>();
     }
-
-    public void Hide()
-    {
-        this.meshData.isHide = true;
-        rdr.enabled = false;
-        collider.enabled = false;
-    }
-
     public void Show()
     {
-        this.meshData.isHide = false;
-        rdr.enabled = true;
-        collider.enabled = true;
+        M_MeshData.isHide = false;
+        mRenderer.enabled = true;
+        mCollider.enabled = true;
     }
-    // Update is called once per frame
-    void Update()
+    
+    public void Hide()
     {
-        
+        M_MeshData.isHide = true;
+        mRenderer.enabled = false;
+        mCollider.enabled = false;
     }
 }
