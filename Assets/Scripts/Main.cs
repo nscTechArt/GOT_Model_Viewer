@@ -161,7 +161,7 @@ public class Main : MonoBehaviour
         for (int i = 0; i < CurrentMeshData.Count; i++)
         {
             Mesh mesh = new Mesh();
-            mesh.vertices = CurrentMeshData[i].verticles;
+            mesh.vertices = CurrentMeshData[i].vertices;
             int[] triangles = new int[CurrentMeshData[i].triangles.Count];
             for (int j = 0; j < CurrentMeshData[i].triangles.Count; j++)
             {
@@ -174,12 +174,12 @@ public class Main : MonoBehaviour
             
             // mesh.uv = meshs[i].uvs;
 
-            int vertCount = CurrentMeshData[i].verticles.Length;
+            int vertCount = CurrentMeshData[i].vertices.Length;
             int uvCount = CurrentMeshData[i].uvs.Count / vertCount;
             List<Vector2[]> uvList = new List<Vector2[]>();
             for (int j = 0; j < uvCount; j++)
             {
-                Vector2[] uv = new Vector2[CurrentMeshData[i].verticles.Length];
+                Vector2[] uv = new Vector2[CurrentMeshData[i].vertices.Length];
                 for (int k = j * vertCount; k < vertCount * j + vertCount; k++)
                 {
                     uv[k - j * vertCount] = CurrentMeshData[i].uvs[k];
